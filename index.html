@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="theme-toggle">
+        <button id="theme-toggle-button" class="theme-toggle-button"><span id="theme-icon" class="theme-icon">🌑</span></button>
+    </div>
+    <div class="container">
+        <div class="form-wrapper">
+            <h2 class="title">Login ou Criar uma conta</h2>
+            <p class="sub-title">Comece a usar a nossa plataforma hoje!</p>
+
+            <form id="login-form" class="form">
+                <div class="input-group">
+                    <label for="email">Endereço de Email</label>
+                    <input type="email" id="email" class="input" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" class="input" required>
+                </div>
+
+                <div class="flex-row">
+                    <div class="flex-row">
+                        <input type="checkbox" id="remember" class="checkbox">
+                        <label for="remember" class="checkbox-label">Lembre-me</label>
+                    </div>
+                    <div class="forgot-password">
+                        <a href="#">Esqueceu sua senha?</a>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">Entrar</button>
+            </form>
+
+            <div class="separator">
+                <span>Ou continue com</span>
+            </div>
+
+            <div class="social-login">
+                <button class="social-button">Github</button>
+                <button class="social-button">Google</button>
+                <button class="social-button">Facebook</button>
+            </div>
+
+            <div class="singup">Não tem uma conta?<a href="#">Cadastre-se</a></div>
+        </div>
+    </div>
+</body>
+</html>

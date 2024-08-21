@@ -1,0 +1,266 @@
+//Variaveis
+$font-family: Arial, sans-serif;
+$line-height: 1.6;
+
+$primary-color: hsl(346.8, 77.2%, 49.8%);
+$primary-color-hover: hsl(346.8, 77.2%, 40%);
+$white: hsl(0, 0%, 100%);
+$black: hsl(240, 10%, 3.9%);
+
+//Tema claro e as suas variaveis
+$light-bg: hsl(0, 0%, 100%);
+$light-text: hsl(240, 0%, 3.9%);
+$light-input-border: hsl(240, 6%, 90%);
+$light-separator-line: hsl(240, 5.9%, 90%);
+
+//Tema Dark e as suas variaveis
+$dark-bg: hsl(0, 10%, 10%);
+$dark-text: hsl(0, 0%, 100%);
+$dark-input-bg: hsl(240, 10%, 15%);
+$dark-input-border: hsl(240, 10%, 25%);
+$dark-separator-line: hsl(240, 10%, 25%);
+
+//Mixins
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+    transition: $property $duration $timing;
+}
+
+// config basicas
+* {
+    box-sizing: 0;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $font-family;
+    line-height: $line-height;
+    background-color: $dark-bg;
+    color: $dark-text;
+}
+
+// torca de tema
+
+.theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    &-button {
+        background-color: hsl(240, 10%, 95%);
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        @include flex-center();
+        cursor: pointer;
+        @include transition(background-color);
+
+        &:hover {
+            background-color: hsl(240, 10%, 85%);
+        }
+    }
+}
+
+//fim da troca de tema
+
+//Container
+.container {
+    min-height: 100vh;
+    @include flex-center();
+    flex-direction: column;
+    padding: 12px 24px;
+}
+
+//form wrapper
+
+.form-wrapper {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+//title e seus subtitulos 
+.title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 0.875;
+    margin-top: 0.5rem;
+}
+
+// form
+
+.form {
+    margin-top: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+}
+
+.input {
+    width: 95.5%;
+    padding: 0.5rem;
+    border: 1px solid $dark-input-border;
+    border-radius: 0.375rem;
+    background-color: $dark-input-bg;
+    color: $dark-text;
+    font-size: 0.875rem;
+
+    &:focus {
+        border-color: $primary-color;
+        outline: none;
+    }
+}
+
+//checkbox
+
+.checkbox {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+}
+
+.checkbox-label {
+    font-size: 0.875rem;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+//Forgot password
+.forgot-password {
+    a {
+        font-size: 0.875rem;
+        color: $primary-color;
+        text-decoration: none;
+
+        &:hover {
+            color: $primary-color-hover;
+            @include transition(color)
+        }
+    }
+}
+
+.submit-button {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: $primary-color;
+    color: $white;
+    font-size: 0.875rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    @include transition(background-color);
+
+    &:hover {
+        background-color: $primary-color-hover;
+    }
+}
+
+//sepaarado
+.separator {
+    margin: 1.5rem 0;
+    text-align: center;
+    position: relative;
+
+    span {
+        background-color: $dark-separator-line;
+        padding: 0 8px;
+        position: relative;
+        z-index: 1;
+        border-radius: 1rem;
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: $dark-separator-line;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: 0;
+    }
+}
+
+// Sociall Login
+.social-login {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.social-button {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid $dark-input-border;
+    border-radius: 0.375rem;
+    background-color: $dark-input-bg;
+    color: $white;
+    font-size: 0.875rem;
+    font-weight: bold;
+    cursor: pointer;
+    @include transition(background-color);
+
+    &:hover {
+        background-color: $primary-color-hover;
+    }
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.singup {
+    text-align: center;
+    font-size: 0.875rem;
+    margin-top: 1.5rem;
+
+    a {
+        color: $primary-color;
+        text-decoration: none;
+        font-weight: bold;
+
+        &:hover {
+            color: $primary-color-hover;
+        }
+    }
+}
+
+// temas
+
+.light-theme {
+    --input-bg-color: #{$light-bg};
+    --input-text-color: #{$light-text};
+    --input-border-color: #{$light-input-border};
+    --separador-bg-color: #{$light-separator-line};
+    background-color: $light-bg;
+    color: $light-text;
+}
+
+.light-theme {
+    --input-bg-color: #{$dark-bg};
+    --input-text-color: #{$dark-text};
+    --input-border-color: #{$dark-input-border};
+    --separador-bg-color: #{$dark-separator-line};
+    background-color: $dark-bg;
+    color: $dark-text;
+}
